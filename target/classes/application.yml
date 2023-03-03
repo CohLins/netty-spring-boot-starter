@@ -1,0 +1,18 @@
+
+netty:
+  server:
+    enabled: true
+    port: 8888
+    heart:
+      read-time: 5
+    my-config:
+      max-frame-length: 1024
+      length-field-offset: 6
+      length-field-length: 4
+    coding-type: my_config
+    http-config:
+      max-content-length: 10240
+
+
+server:
+  port: 8081
