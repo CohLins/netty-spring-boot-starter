@@ -3,13 +3,6 @@ package com.example.nettyDemo.codec.domain;
 import cn.hutool.core.date.DateUtil;
 import lombok.Data;
 
-/**
- * @Description
- * @Author czl
- * @Version V1.0.0
- * @Since 1.0
- * @Date 2022/8/10
- */
 @Data
 public class NettyMsgHead {
     // 开始标识

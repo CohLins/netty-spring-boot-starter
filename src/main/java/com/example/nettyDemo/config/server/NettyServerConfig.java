@@ -1,4 +1,4 @@
-package com.example.nettyDemo.config;
+package com.example.nettyDemo.config.server;
 
 import com.example.nettyDemo.NettyCodingTypeEnum;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -12,7 +12,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
  * @Date 2023/2/27
  */
 @ConfigurationProperties(prefix = "netty.server")
-@EnableConfigurationProperties({NettyMyCodingConfig.class, NettyHttpCodingConfig.class, NettyServerHeartConfig.class})
+@EnableConfigurationProperties({NettyMyCodingConfig.class, NettyHttpCodingConfig.class, NettyServerHeartConfig.class, NettyWebSocketCodingConfig.class})
 public class NettyServerConfig {
 
     private int port = 11111;
@@ -21,7 +21,7 @@ public class NettyServerConfig {
 
     private int workGroupThread;
 
-    private NettyCodingTypeEnum codingType = NettyCodingTypeEnum.DEFINITION;
+    private NettyCodingTypeEnum codingType;
 
     private NettyMyCodingConfig myConfig;
 
@@ -29,10 +29,13 @@ public class NettyServerConfig {
 
     private NettyServerHeartConfig heartConfig;
 
-    public NettyServerConfig(NettyMyCodingConfig myConfig, NettyHttpCodingConfig httpConfig, NettyServerHeartConfig heartConfig) {
+    private NettyWebSocketCodingConfig webSocketConfig;
+
+    public NettyServerConfig(NettyMyCodingConfig myConfig, NettyHttpCodingConfig httpConfig, NettyServerHeartConfig heartConfig, NettyWebSocketCodingConfig webSocketConfig) {
         this.myConfig = myConfig;
         this.httpConfig = httpConfig;
         this.heartConfig = heartConfig;
+        this.webSocketConfig = webSocketConfig;
     }
 
 
@@ -90,5 +93,13 @@ public class NettyServerConfig {
 
     public void setHeartConfig(NettyServerHeartConfig heartConfig) {
         this.heartConfig = heartConfig;
+    }
+
+    public NettyWebSocketCodingConfig getWebSocketConfig() {
+        return webSocketConfig;
+    }
+
+    public void setWebSocketConfig(NettyWebSocketCodingConfig webSocketConfig) {
+        this.webSocketConfig = webSocketConfig;
     }
 }

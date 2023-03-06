@@ -11,13 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.nio.ByteOrder;
 
-/**
- * @Description
- * @Author czl
- * @Version V1.0.0
- * @Since 1.0
- * @Date 2022/8/10
- */
+
 @Slf4j
 public class MyNettyDecoder extends LengthFieldBasedFrameDecoder {
     // 开始标记

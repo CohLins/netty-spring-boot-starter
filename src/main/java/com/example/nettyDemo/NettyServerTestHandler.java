@@ -21,7 +21,7 @@ import java.net.SocketAddress;
  * @Since 1.0
  * @Date 2023/1/31
  */
-@NettyServerHandler
+//@NettyServerHandler
 public class NettyServerTestHandler extends ChannelInboundHandlerAdapter {
 
     private static final Logger log = LoggerFactory.getLogger(NettyServerTestHandler.class);

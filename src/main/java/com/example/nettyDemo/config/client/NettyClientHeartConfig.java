@@ -1,4 +1,4 @@
-package com.example.nettyDemo.config;
+package com.example.nettyDemo.config.client;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -9,8 +9,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @Since 1.0
  * @Date 2023/2/28
  */
-@ConfigurationProperties(prefix = "netty.server.heart")
-public class NettyServerHeartConfig {
+@ConfigurationProperties(prefix = "netty.client.heart")
+public class NettyClientHeartConfig {
     private int readTime;
     private int writeTime;
     private int allTime;

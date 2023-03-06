@@ -1,4 +1,4 @@
-package com.example.nettyDemo.config;
+package com.example.nettyDemo.config.server;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

@@ -1,6 +1,6 @@
 package com.example.nettyDemo.entity;
 
-import com.example.nettyDemo.config.NettyServerHeartConfig;
+import com.example.nettyDemo.config.server.NettyServerHeartConfig;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.timeout.IdleStateEvent;
 

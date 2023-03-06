@@ -8,13 +8,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 import lombok.extern.slf4j.Slf4j;
 
-/**
- * @Description
- * @Author czl
- * @Version V1.0.0
- * @Since 1.0
- * @Date 2022/8/10
- */
 @Slf4j
 public class MyNettyEncoder extends MessageToByteEncoder<NettyMsg> {
     @Override

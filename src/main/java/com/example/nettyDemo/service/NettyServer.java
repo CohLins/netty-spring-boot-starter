@@ -1,8 +1,7 @@
 package com.example.nettyDemo.service;
 
-import com.example.nettyDemo.config.NettyServerConfig;
+import com.example.nettyDemo.config.server.NettyServerConfig;
 
-import com.example.nettyDemo.handler.NettyServerHandlerInitializer;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -25,10 +24,12 @@ import java.net.InetSocketAddress;
 @Slf4j
 public class NettyServer implements InitializingBean {
 
-    private NettyServerConfig nettyServerConfig;
+
 
     private NioEventLoopGroup bossGroup = null;
     private NioEventLoopGroup workerGroup = null;
+
+    private NettyServerConfig nettyServerConfig;
 
     private ChannelInitializer channelInitializer;
 

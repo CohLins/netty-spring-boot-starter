@@ -9,7 +9,7 @@ netty:
       max-frame-length: 1024
       length-field-offset: 6
       length-field-length: 4
-    coding-type: my_config
+    coding-type:
     http-config:
       max-content-length: 10240
 

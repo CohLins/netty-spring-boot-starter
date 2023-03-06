@@ -1,4 +1,4 @@
-package com.example.nettyDemo.handler.server;
+package com.example.nettyDemo.handler.client;
 
 import com.example.nettyDemo.config.server.NettyServerConfig;
 import com.example.nettyDemo.config.server.NettyServerHeartConfig;

@@ -1,4 +1,4 @@
-package com.example.nettyDemo.config;
+package com.example.nettyDemo.config.server;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -16,7 +16,7 @@ public class NettyHttpCodingConfig {
     private int maxChunkSize;
     private boolean validateHeaders;
     private int initialBufferSize;
-    private int maxContentLength;
+    private int maxContentLength=10240;
 
     public int getMaxInitialLineLength() {
         return maxInitialLineLength;
