@@ -1,4 +1,4 @@
-package com.example.nettyDemo;
+package com.example.nettyDemo.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;

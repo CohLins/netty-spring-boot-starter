@@ -1,4 +1,4 @@
-package com.example.nettyDemo.config.server;
+package com.example.nettyDemo.config.client;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -9,9 +9,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @Since 1.0
  * @Date 2023/3/1
  */
-@ConfigurationProperties(prefix = "netty.server.my-config")
-public class NettyMyCodingConfig {
-    private int maxFrameLength;
+@ConfigurationProperties(prefix = "netty.client.my-config")
+public class NettyClientMyCodingConfig {
+    private int maxFrameLength=1024;
     private int lengthFieldOffset;
     private int lengthFieldLength;
     private int lengthAdjustment;

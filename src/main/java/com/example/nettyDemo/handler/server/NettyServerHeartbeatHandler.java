@@ -2,7 +2,7 @@ package com.example.nettyDemo.handler.server;
 
 import com.example.nettyDemo.config.server.NettyServerConfig;
 import com.example.nettyDemo.config.server.NettyServerHeartConfig;
-import com.example.nettyDemo.entity.NettyServerIdleEntity;
+import com.example.nettyDemo.entity.NettyServerNettyIdleEntity;
 import com.example.nettyDemo.event.NettyServerIdleEvent;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.timeout.IdleStateEvent;
@@ -29,6 +29,6 @@ public class NettyServerHeartbeatHandler extends IdleStateHandler {
 
     @Override
     protected void channelIdle(ChannelHandlerContext ctx, IdleStateEvent evt) throws Exception {
-        applicationContext.publishEvent(new NettyServerIdleEvent(new NettyServerIdleEntity(ctx, evt, serverHeartConfig)));
+        applicationContext.publishEvent(new NettyServerIdleEvent(new NettyServerNettyIdleEntity(ctx, evt, serverHeartConfig)));
     }
 }

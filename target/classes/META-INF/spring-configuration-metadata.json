@@ -1,182 +1,287 @@
 {
   "groups": [
     {
+      "name": "netty.client",
+      "type": "com.example.nettyDemo.config.client.NettyClientConfig",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientConfig"
+    },
+    {
+      "name": "netty.client.heart",
+      "type": "com.example.nettyDemo.config.client.NettyClientHeartConfig",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientHeartConfig"
+    },
+    {
+      "name": "netty.client.my-config",
+      "type": "com.example.nettyDemo.config.client.NettyClientMyCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientMyCodingConfig"
+    },
+    {
       "name": "netty.server",
-      "type": "com.example.nettyDemo.config.NettyServerConfig",
-      "sourceType": "com.example.nettyDemo.config.NettyServerConfig"
+      "type": "com.example.nettyDemo.config.server.NettyServerConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerConfig"
     },
     {
       "name": "netty.server.heart",
-      "type": "com.example.nettyDemo.config.NettyServerHeartConfig",
-      "sourceType": "com.example.nettyDemo.config.NettyServerHeartConfig"
+      "type": "com.example.nettyDemo.config.server.NettyServerHeartConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerHeartConfig"
+    },
+    {
+      "name": "netty.server.http-config",
+      "type": "com.example.nettyDemo.config.server.NettyHttpCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyHttpCodingConfig"
+    },
+    {
+      "name": "netty.server.my-config",
+      "type": "com.example.nettyDemo.config.server.NettyServerMyCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerMyCodingConfig"
     },
     {
       "name": "netty.server.websocket-config",
-      "type": "com.example.nettyDemo.config.NettyWebSocketCodingConfig",
-      "sourceType": "com.example.nettyDemo.config.NettyWebSocketCodingConfig"
+      "type": "com.example.nettyDemo.config.server.NettyWebSocketCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyWebSocketCodingConfig"
     }
   ],
   "properties": [
     {
+      "name": "netty.client.address",
+      "type": "java.lang.String",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientConfig"
+    },
+    {
+      "name": "netty.client.coding-type-enum",
+      "type": "com.example.nettyDemo.channel.client.NettyClientCodingTypeEnum",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientConfig"
+    },
+    {
+      "name": "netty.client.heart-config",
+      "type": "com.example.nettyDemo.config.client.NettyClientHeartConfig",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientConfig"
+    },
+    {
+      "name": "netty.client.heart.all-time",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientHeartConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "netty.client.heart.read-time",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientHeartConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "netty.client.heart.write-time",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientHeartConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "netty.client.my-config",
+      "type": "com.example.nettyDemo.config.client.NettyClientMyCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientConfig"
+    },
+    {
+      "name": "netty.client.my-config.initial-bytes-to-strip",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientMyCodingConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "netty.client.my-config.length-adjustment",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientMyCodingConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "netty.client.my-config.length-field-length",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientMyCodingConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "netty.client.my-config.length-field-offset",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientMyCodingConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "netty.client.my-config.max-frame-length",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientMyCodingConfig",
+      "defaultValue": 1024
+    },
+    {
+      "name": "netty.client.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientConfig",
+      "defaultValue": 0
+    },
+    {
+      "name": "netty.client.work-group-thread",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientConfig",
+      "defaultValue": 0
+    },
+    {
       "name": "netty.server.boss-group-thread",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyServerConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerConfig",
       "defaultValue": 0
     },
     {
       "name": "netty.server.coding-type",
-      "type": "com.example.nettyDemo.NettyCodingTypeEnum",
-      "sourceType": "com.example.nettyDemo.config.NettyServerConfig"
+      "type": "com.example.nettyDemo.channel.server.NettyServerCodingTypeEnum",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerConfig"
     },
     {
       "name": "netty.server.heart-config",
-      "type": "com.example.nettyDemo.config.NettyServerHeartConfig",
-      "sourceType": "com.example.nettyDemo.config.NettyServerConfig"
+      "type": "com.example.nettyDemo.config.server.NettyServerHeartConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerConfig"
     },
     {
       "name": "netty.server.heart.all-time",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyServerHeartConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerHeartConfig",
       "defaultValue": 0
     },
     {
       "name": "netty.server.heart.read-time",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyServerHeartConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerHeartConfig",
       "defaultValue": 0
     },
     {
       "name": "netty.server.heart.write-time",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyServerHeartConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerHeartConfig",
       "defaultValue": 0
     },
     {
       "name": "netty.server.http-config",
-      "type": "com.example.nettyDemo.config.NettyHttpCodingConfig",
-      "sourceType": "com.example.nettyDemo.config.NettyServerConfig"
+      "type": "com.example.nettyDemo.config.server.NettyHttpCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerConfig"
     },
     {
       "name": "netty.server.http-config.initial-buffer-size",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyHttpCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyHttpCodingConfig",
       "defaultValue": 0
     },
     {
       "name": "netty.server.http-config.max-chunk-size",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyHttpCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyHttpCodingConfig",
       "defaultValue": 0
     },
     {
       "name": "netty.server.http-config.max-content-length",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyHttpCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyHttpCodingConfig",
       "defaultValue": 10240
     },
     {
       "name": "netty.server.http-config.max-header-size",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyHttpCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyHttpCodingConfig",
       "defaultValue": 0
     },
     {
       "name": "netty.server.http-config.max-initial-line-length",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyHttpCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyHttpCodingConfig",
       "defaultValue": 0
     },
     {
       "name": "netty.server.http-config.validate-headers",
       "type": "java.lang.Boolean",
-      "sourceType": "com.example.nettyDemo.config.NettyHttpCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyHttpCodingConfig",
       "defaultValue": false
     },
     {
       "name": "netty.server.my-config",
-      "type": "com.example.nettyDemo.config.NettyMyCodingConfig",
-      "sourceType": "com.example.nettyDemo.config.NettyServerConfig"
+      "type": "com.example.nettyDemo.config.server.NettyServerMyCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerConfig"
     },
     {
       "name": "netty.server.my-config.initial-bytes-to-strip",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyMyCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerMyCodingConfig",
       "defaultValue": 0
     },
     {
       "name": "netty.server.my-config.length-adjustment",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyMyCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerMyCodingConfig",
       "defaultValue": 0
     },
     {
       "name": "netty.server.my-config.length-field-length",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyMyCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerMyCodingConfig",
       "defaultValue": 0
     },
     {
       "name": "netty.server.my-config.length-field-offset",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyMyCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerMyCodingConfig",
       "defaultValue": 0
     },
     {
       "name": "netty.server.my-config.max-frame-length",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyMyCodingConfig",
-      "defaultValue": 0
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerMyCodingConfig",
+      "defaultValue": 1024
     },
     {
       "name": "netty.server.port",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyServerConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerConfig",
       "defaultValue": 11111
     },
     {
       "name": "netty.server.web-socket-config",
-      "type": "com.example.nettyDemo.config.NettyWebSocketCodingConfig",
-      "sourceType": "com.example.nettyDemo.config.NettyServerConfig"
+      "type": "com.example.nettyDemo.config.server.NettyWebSocketCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerConfig"
     },
     {
       "name": "netty.server.websocket-config.allow-extensions",
       "type": "java.lang.Boolean",
-      "sourceType": "com.example.nettyDemo.config.NettyWebSocketCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyWebSocketCodingConfig",
       "defaultValue": false
     },
     {
       "name": "netty.server.websocket-config.allow-mask-mismatch",
       "type": "java.lang.Boolean",
-      "sourceType": "com.example.nettyDemo.config.NettyWebSocketCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyWebSocketCodingConfig",
       "defaultValue": false
     },
     {
       "name": "netty.server.websocket-config.check-starts-with",
       "type": "java.lang.Boolean",
-      "sourceType": "com.example.nettyDemo.config.NettyWebSocketCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyWebSocketCodingConfig",
       "defaultValue": false
     },
     {
       "name": "netty.server.websocket-config.max-frame-size",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyWebSocketCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyWebSocketCodingConfig",
       "defaultValue": 65536
     },
     {
       "name": "netty.server.websocket-config.subprotocols",
       "type": "java.lang.String",
-      "sourceType": "com.example.nettyDemo.config.NettyWebSocketCodingConfig"
+      "sourceType": "com.example.nettyDemo.config.server.NettyWebSocketCodingConfig"
     },
     {
       "name": "netty.server.websocket-config.websocket-path",
       "type": "java.lang.String",
-      "sourceType": "com.example.nettyDemo.config.NettyWebSocketCodingConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyWebSocketCodingConfig",
       "defaultValue": "\/ws"
     },
     {
       "name": "netty.server.work-group-thread",
       "type": "java.lang.Integer",
-      "sourceType": "com.example.nettyDemo.config.NettyServerConfig",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerConfig",
       "defaultValue": 0
     }
   ],

@@ -1,6 +1,6 @@
 package com.example.nettyDemo.event;
 
-import com.example.nettyDemo.entity.NettyServerIdleEntity;
+import com.example.nettyDemo.entity.NettyServerNettyIdleEntity;
 import org.springframework.context.ApplicationEvent;
 
 /**
@@ -12,7 +12,7 @@ import org.springframework.context.ApplicationEvent;
  */
 public class NettyServerIdleEvent extends ApplicationEvent {
 
-    public NettyServerIdleEvent(NettyServerIdleEntity nettyServerIdleEntity) {
+    public NettyServerIdleEvent(NettyServerNettyIdleEntity nettyServerIdleEntity) {
         super(nettyServerIdleEntity);
     }
 }

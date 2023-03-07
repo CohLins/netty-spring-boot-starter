@@ -1,9 +1,8 @@
 package com.example.nettyDemo.config.client;
 
 import com.example.nettyDemo.channel.client.NettyClientChannelInit;
-import com.example.nettyDemo.channel.server.NettyServerChannelInit;
+import com.example.nettyDemo.channel.client.impl.NettyMyCodingClientChannelInit;
 import com.example.nettyDemo.handler.NettyClientHandlerInitializer;
-import com.example.nettyDemo.handler.NettyServerHandlerInitializer;
 import com.example.nettyDemo.service.NettyClient;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -29,9 +28,19 @@ import org.springframework.context.annotation.Configuration;
 public class NettyClientAutoConfiguration {
 
 
+    @Bean
+    @ConditionalOnMissingBean(NettyClientChannelInit.class)
+    @ConditionalOnProperty(
+            value = {"netty.client.coding-type"},
+            havingValue = "my_config"
+    )
+    public NettyClientChannelInit clientMyConfigChannelInit(){
+        return new NettyMyCodingClientChannelInit();
+    }
 
     @Bean
     @ConditionalOnMissingBean(value = NettyClientHandlerInitializer.class)
+    @ConditionalOnBean(value = NettyClientChannelInit.class)
     public NettyClientHandlerInitializer channelInitializer(NettyClientConfig nettyClientConfig, ApplicationContext context, NettyClientChannelInit nettyClientChannelInit) {
         return new NettyClientHandlerInitializer(nettyClientConfig,context, nettyClientChannelInit);
     }
@@ -40,7 +49,7 @@ public class NettyClientAutoConfiguration {
 
     @Bean
     @ConditionalOnBean(value = NettyClientHandlerInitializer.class)
-    public NettyClient nettyClient(NettyClientConfig nettyClientConfig, NettyServerHandlerInitializer channelInitializer) {
+    public NettyClient nettyClient(NettyClientConfig nettyClientConfig, NettyClientHandlerInitializer channelInitializer) {
         return new NettyClient(nettyClientConfig,channelInitializer);
     }
 

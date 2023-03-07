@@ -1,16 +1,17 @@
 package com.example.nettyDemo.service;
 
 import com.example.nettyDemo.config.client.NettyClientConfig;
-import com.example.nettyDemo.config.server.NettyServerConfig;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 
 import javax.annotation.PreDestroy;
-import java.util.concurrent.TimeUnit;
 
 
 @Slf4j
@@ -27,7 +28,7 @@ public class NettyClient implements InitializingBean {
         this.channelInitializer = channelInitializer;
     }
 
-    public void nettyClientStart() throws InterruptedException {
+    public void nettyClientStart() {
         group = new NioEventLoopGroup(nettyClientConfig.getWorkGroupThread());
         try{
 
@@ -42,9 +43,13 @@ public class NettyClient implements InitializingBean {
                     .handler(channelInitializer);
 
             ChannelFuture future = bootstrap.connect();
-            if(future.isSuccess()){
-                log.info("连接 Netty Server 成功,地址：{},端口：{},协议:{}",nettyClientConfig.getAddress(),nettyClientConfig.getPort(),null);
-            }
+            future.addListener(event->{
+                if(event.isSuccess()){
+                    log.info("连接 Netty Server 成功,地址：{},端口：{},协议:{}",nettyClientConfig.getAddress(),nettyClientConfig.getPort(),null);
+                }else {
+                    log.error("Netty Client Connect Fail");
+                }
+            });
             future.channel().closeFuture().sync();
         }catch (Exception e){
             log.error("Netty Client start error：{},{}",e.getMessage(),e);
@@ -64,11 +69,7 @@ public class NettyClient implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         new Thread(()->{
-            try {
                 nettyClientStart();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }).start();
     }
 }

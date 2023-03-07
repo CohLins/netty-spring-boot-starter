@@ -2,11 +2,9 @@ package com.example.nettyDemo.channel.client;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.example.nettyDemo.NettyHandlerCollect;
-import com.example.nettyDemo.SpringUtils;
+import com.example.nettyDemo.utils.SpringUtils;
 import com.example.nettyDemo.annotation.NettyClientHandler;
-import com.example.nettyDemo.annotation.NettyServerHandler;
 import com.example.nettyDemo.config.client.NettyClientConfig;
-import com.example.nettyDemo.config.server.NettyServerConfig;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import org.springframework.context.ApplicationContext;
@@ -34,5 +32,5 @@ public interface NettyClientChannelInit {
         return handlers;
     }
 
-    void initChannelHandlers(Channel channel, NettyClientConfig nettyServerConfig, ApplicationContext context);
+    void initChannelHandlers(Channel channel, NettyClientConfig nettyClientConfig, ApplicationContext context);
 }

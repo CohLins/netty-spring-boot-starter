@@ -1,6 +1,6 @@
 package com.example.nettyDemo.config.server;
 
-import com.example.nettyDemo.NettyCodingTypeEnum;
+import com.example.nettyDemo.channel.server.NettyServerCodingTypeEnum;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
@@ -12,7 +12,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
  * @Date 2023/2/27
  */
 @ConfigurationProperties(prefix = "netty.server")
-@EnableConfigurationProperties({NettyMyCodingConfig.class, NettyHttpCodingConfig.class, NettyServerHeartConfig.class, NettyWebSocketCodingConfig.class})
+@EnableConfigurationProperties({NettyServerMyCodingConfig.class, NettyHttpCodingConfig.class, NettyServerHeartConfig.class, NettyWebSocketCodingConfig.class})
 public class NettyServerConfig {
 
     private int port = 11111;
@@ -21,9 +21,9 @@ public class NettyServerConfig {
 
     private int workGroupThread;
 
-    private NettyCodingTypeEnum codingType;
+    private NettyServerCodingTypeEnum codingType;
 
-    private NettyMyCodingConfig myConfig;
+    private NettyServerMyCodingConfig myConfig;
 
     private NettyHttpCodingConfig httpConfig;
 
@@ -31,7 +31,7 @@ public class NettyServerConfig {
 
     private NettyWebSocketCodingConfig webSocketConfig;
 
-    public NettyServerConfig(NettyMyCodingConfig myConfig, NettyHttpCodingConfig httpConfig, NettyServerHeartConfig heartConfig, NettyWebSocketCodingConfig webSocketConfig) {
+    public NettyServerConfig(NettyServerMyCodingConfig myConfig, NettyHttpCodingConfig httpConfig, NettyServerHeartConfig heartConfig, NettyWebSocketCodingConfig webSocketConfig) {
         this.myConfig = myConfig;
         this.httpConfig = httpConfig;
         this.heartConfig = heartConfig;
@@ -63,11 +63,11 @@ public class NettyServerConfig {
         this.workGroupThread = workGroupThread;
     }
 
-    public NettyMyCodingConfig getMyConfig() {
+    public NettyServerMyCodingConfig getMyConfig() {
         return myConfig;
     }
 
-    public void setMyConfig(NettyMyCodingConfig myConfig) {
+    public void setMyConfig(NettyServerMyCodingConfig myConfig) {
         this.myConfig = myConfig;
     }
 
@@ -79,11 +79,11 @@ public class NettyServerConfig {
         this.httpConfig = httpConfig;
     }
 
-    public NettyCodingTypeEnum getCodingType() {
+    public NettyServerCodingTypeEnum getCodingType() {
         return codingType;
     }
 
-    public void setCodingType(NettyCodingTypeEnum codingType) {
+    public void setCodingType(NettyServerCodingTypeEnum codingType) {
         this.codingType = codingType;
     }
 

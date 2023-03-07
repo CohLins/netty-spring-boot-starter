@@ -1,6 +1,7 @@
-package com.example.nettyDemo.channel.server;
+package com.example.nettyDemo.channel.server.impl;
 
 import com.example.nettyDemo.NettyHandlerCollect;
+import com.example.nettyDemo.channel.server.NettyServerChannelInit;
 import com.example.nettyDemo.codec.MyNettyDecoder;
 import com.example.nettyDemo.codec.MyNettyEncoder;
 import com.example.nettyDemo.config.server.NettyServerConfig;

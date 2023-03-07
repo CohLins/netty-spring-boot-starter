@@ -38,7 +38,7 @@ public class NettyServer implements InitializingBean {
         this.channelInitializer = channelInitializer;
     }
 
-    protected void serverStart() throws InterruptedException {
+    protected void nettyServerStart() {
         try {
             bossGroup = new NioEventLoopGroup(nettyServerConfig.getBossGroupThread());
             workerGroup = new NioEventLoopGroup(nettyServerConfig.getWorkGroupThread());
@@ -86,11 +86,7 @@ public class NettyServer implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         new Thread(()->{
-            try {
-                serverStart();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            nettyServerStart();
         }).start();
     }
 }

@@ -1,12 +1,10 @@
 package com.example.nettyDemo.codec;
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
  * @author Administrator
  */
-@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum ServiceCodeEnum {
     TEST_TYPE((short) 0xFFF1, "测试");
 

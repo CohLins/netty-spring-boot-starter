@@ -2,7 +2,7 @@ package com.example.nettyDemo.channel.server;
 
 import cn.hutool.core.collection.CollectionUtil;
 import com.example.nettyDemo.NettyHandlerCollect;
-import com.example.nettyDemo.SpringUtils;
+import com.example.nettyDemo.utils.SpringUtils;
 import com.example.nettyDemo.annotation.NettyServerHandler;
 import com.example.nettyDemo.config.server.NettyServerConfig;
 import io.netty.channel.Channel;

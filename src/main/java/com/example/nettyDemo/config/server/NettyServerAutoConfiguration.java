@@ -1,9 +1,9 @@
 package com.example.nettyDemo.config.server;
 
 import com.example.nettyDemo.channel.server.NettyServerChannelInit;
-import com.example.nettyDemo.channel.server.NettyHttpServerChannelInit;
-import com.example.nettyDemo.channel.server.NettyMyCodingServerChannelInit;
-import com.example.nettyDemo.channel.server.NettyWebSocketServerChannelInit;
+import com.example.nettyDemo.channel.server.impl.NettyHttpServerChannelInit;
+import com.example.nettyDemo.channel.server.impl.NettyMyCodingServerChannelInit;
+import com.example.nettyDemo.channel.server.impl.NettyWebSocketServerChannelInit;
 import com.example.nettyDemo.handler.NettyServerHandlerInitializer;
 import com.example.nettyDemo.service.NettyServer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -36,7 +36,7 @@ public class NettyServerAutoConfiguration {
             value = {"netty.server.coding-type"},
             havingValue = "http"
     )
-    public NettyServerChannelInit httpChannelInit(){
+    public NettyServerChannelInit serverHttpChannelInit(){
         return new NettyHttpServerChannelInit();
     }
 
@@ -46,7 +46,7 @@ public class NettyServerAutoConfiguration {
             value = {"netty.server.coding-type"},
             havingValue = "websocket"
     )
-    public NettyServerChannelInit webSocketChannelInit(){
+    public NettyServerChannelInit serverWebSocketChannelInit(){
         return new NettyWebSocketServerChannelInit();
     }
 
@@ -56,13 +56,14 @@ public class NettyServerAutoConfiguration {
             value = {"netty.server.coding-type"},
             havingValue = "my_config"
     )
-    public NettyServerChannelInit myConfigChannelInit(){
+    public NettyServerChannelInit serverMyConfigChannelInit(){
         return new NettyMyCodingServerChannelInit();
     }
 
 
     @Bean
     @ConditionalOnMissingBean(value = NettyServerHandlerInitializer.class)
+    @ConditionalOnBean(value = NettyServerChannelInit.class)
     public NettyServerHandlerInitializer channelInitializer(NettyServerConfig nettyServerConfig, ApplicationContext context, NettyServerChannelInit nettyServerChannelInit) {
         return new NettyServerHandlerInitializer(nettyServerConfig,context, nettyServerChannelInit);
     }
