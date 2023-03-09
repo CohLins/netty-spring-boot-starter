@@ -12,6 +12,7 @@ F:\student_project\netty\src\main\java\com\example\nettyDemo\config\server\Netty
 F:\student_project\netty\src\main\java\com\example\nettyDemo\config\client\NettyClientMyCodingConfig.java
 F:\student_project\netty\src\main\java\com\example\nettyDemo\handler\NettyServerHandlerInitializer.java
 F:\student_project\netty\src\main\java\com\example\nettyDemo\entity\NettyClientNettyIdleEntity.java
+F:\student_project\netty\src\main\java\com\example\nettyDemo\utils\SpringUtils.java
 F:\student_project\netty\src\main\java\com\example\nettyDemo\entity\NettyIdleEntity.java
 F:\student_project\netty\src\main\java\com\example\nettyDemo\channel\client\NettyClientChannelInit.java
 F:\student_project\netty\src\main\java\com\example\nettyDemo\codec\domain\NettyBody.java
@@ -29,7 +30,6 @@ F:\student_project\netty\src\main\java\com\example\nettyDemo\channel\client\impl
 F:\student_project\netty\src\main\java\com\example\nettyDemo\event\NettyClientIdleEvent.java
 F:\student_project\netty\src\main\java\com\example\nettyDemo\service\NettyClient.java
 F:\student_project\netty\src\main\java\com\example\nettyDemo\codec\MyNettyDecoder.java
-F:\student_project\netty\src\main\java\com\example\nettyDemo\SpringUtils.java
 F:\student_project\netty\src\main\java\com\example\nettyDemo\entity\NettyServerNettyIdleEntity.java
 F:\student_project\netty\src\main\java\com\example\nettyDemo\channel\client\NettyClientCodingTypeEnum.java
 F:\student_project\netty\src\main\java\com\example\nettyDemo\codec\domain\NettyMsg.java

@@ -2,7 +2,6 @@ com\example\nettyDemo\channel\client\impl\NettyMyCodingClientChannelInit.class
 com\example\nettyDemo\codec\domain\NettyBody.class
 com\example\nettyDemo\channel\server\NettyServerCodingTypeEnum.class
 com\example\nettyDemo\config\server\NettyServerMyCodingConfig.class
-com\example\nettyDemo\SpringUtils.class
 com\example\nettyDemo\annotation\NettyServerHandler.class
 com\example\nettyDemo\codec\ServiceCodeEnum.class
 com\example\nettyDemo\codec\MyNettyEncoder.class
@@ -25,8 +24,11 @@ com\example\nettyDemo\channel\server\NettyServerChannelInit.class
 com\example\nettyDemo\config\client\NettyClientMyCodingConfig.class
 com\example\nettyDemo\config\server\NettyServerHeartConfig.class
 com\example\nettyDemo\event\NettyClientIdleEvent.class
+com\example\nettyDemo\channel\client\impl\NettyDefaultClientChannelInit.class
 com\example\nettyDemo\channel\client\NettyClientCodingTypeEnum.class
+com\example\nettyDemo\channel\server\impl\NettyDefaultServerChannelInit.class
 com\example\nettyDemo\channel\server\impl\NettyHttpServerChannelInit.class
+com\example\nettyDemo\config\client\NettyClientRetryConfig.class
 com\example\nettyDemo\codec\domain\NettyMsgHead.class
 com\example\nettyDemo\event\NettyServerIdleEvent.class
 com\example\nettyDemo\config\server\NettyServerConfig.class
@@ -35,6 +37,7 @@ com\example\nettyDemo\handler\server\NettyServerHeartbeatHandler.class
 com\example\nettyDemo\handler\NettyClientHandlerInitializer.class
 com\example\nettyDemo\config\client\NettyClientAutoConfiguration.class
 com\example\nettyDemo\config\server\NettyHttpCodingConfig.class
+com\example\nettyDemo\utils\SpringUtils.class
 com\example\nettyDemo\config\server\NettyServerAutoConfiguration.class
 com\example\nettyDemo\entity\NettyIdleEntity.class
 com\example\nettyDemo\NettyHandlerCollect.class

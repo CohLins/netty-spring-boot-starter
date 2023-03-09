@@ -16,19 +16,22 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
  * @Date 2023/3/6
  */
 @ConfigurationProperties(prefix = "netty.client")
-@EnableConfigurationProperties({NettyClientMyCodingConfig.class, NettyClientHeartConfig.class})
+@EnableConfigurationProperties({NettyClientMyCodingConfig.class, NettyClientHeartConfig.class, NettyClientRetryConfig.class})
 public class NettyClientConfig {
-    private String address;
-    private int port;
+    private boolean enabled = false;
+    private String address = "127.0.0.1";
+    private int port = 11111;
     private int workGroupThread;
-    private NettyClientCodingTypeEnum codingType;
+    private NettyClientCodingTypeEnum codingType = NettyClientCodingTypeEnum.DEFAULT;
 
     private NettyClientMyCodingConfig myConfig;
     private NettyClientHeartConfig heartConfig;
+    private NettyClientRetryConfig retryConfig;
 
-    public NettyClientConfig(NettyClientMyCodingConfig myConfig, NettyClientHeartConfig heartConfig) {
+    public NettyClientConfig(NettyClientMyCodingConfig myConfig, NettyClientHeartConfig heartConfig, NettyClientRetryConfig retryConfig) {
         this.myConfig = myConfig;
         this.heartConfig = heartConfig;
+        this.retryConfig = retryConfig;
     }
 
     public String getAddress() {
@@ -55,14 +58,6 @@ public class NettyClientConfig {
         this.workGroupThread = workGroupThread;
     }
 
-    public NettyClientCodingTypeEnum getCodingTypeEnum() {
-        return codingType;
-    }
-
-    public void setCodingTypeEnum(NettyClientCodingTypeEnum codingTypeEnum) {
-        this.codingType = codingTypeEnum;
-    }
-
     public NettyClientMyCodingConfig getMyConfig() {
         return myConfig;
     }
@@ -77,5 +72,29 @@ public class NettyClientConfig {
 
     public void setHeartConfig(NettyClientHeartConfig heartConfig) {
         this.heartConfig = heartConfig;
+    }
+
+    public NettyClientRetryConfig getRetryConfig() {
+        return retryConfig;
+    }
+
+    public void setRetryConfig(NettyClientRetryConfig retryConfig) {
+        this.retryConfig = retryConfig;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public NettyClientCodingTypeEnum getCodingType() {
+        return codingType;
+    }
+
+    public void setCodingType(NettyClientCodingTypeEnum codingType) {
+        this.codingType = codingType;
     }
 }

@@ -1,5 +1,5 @@
 package com.example.nettyDemo.channel.client;
 
 public enum NettyClientCodingTypeEnum {
-    MY_CONFIG;
+    MY_CONFIG,DEFAULT;
 }

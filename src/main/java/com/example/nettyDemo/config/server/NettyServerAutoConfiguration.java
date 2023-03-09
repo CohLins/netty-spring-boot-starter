@@ -1,6 +1,7 @@
 package com.example.nettyDemo.config.server;
 
 import com.example.nettyDemo.channel.server.NettyServerChannelInit;
+import com.example.nettyDemo.channel.server.impl.NettyDefaultServerChannelInit;
 import com.example.nettyDemo.channel.server.impl.NettyHttpServerChannelInit;
 import com.example.nettyDemo.channel.server.impl.NettyMyCodingServerChannelInit;
 import com.example.nettyDemo.channel.server.impl.NettyWebSocketServerChannelInit;
@@ -58,6 +59,16 @@ public class NettyServerAutoConfiguration {
     )
     public NettyServerChannelInit serverMyConfigChannelInit(){
         return new NettyMyCodingServerChannelInit();
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(NettyServerChannelInit.class)
+    @ConditionalOnProperty(
+            value = {"netty.server.coding-type"},
+            havingValue = "default"
+    )
+    public NettyServerChannelInit serverDefaultChannelInit(){
+        return new NettyDefaultServerChannelInit();
     }
 
 

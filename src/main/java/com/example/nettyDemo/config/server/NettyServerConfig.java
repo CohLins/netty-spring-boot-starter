@@ -1,5 +1,6 @@
 package com.example.nettyDemo.config.server;
 
+import com.example.nettyDemo.channel.client.NettyClientCodingTypeEnum;
 import com.example.nettyDemo.channel.server.NettyServerCodingTypeEnum;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -15,13 +16,15 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 @EnableConfigurationProperties({NettyServerMyCodingConfig.class, NettyHttpCodingConfig.class, NettyServerHeartConfig.class, NettyWebSocketCodingConfig.class})
 public class NettyServerConfig {
 
+    private boolean enabled=false;
+
     private int port = 11111;
 
     private int bossGroupThread;
 
     private int workGroupThread;
 
-    private NettyServerCodingTypeEnum codingType;
+    private NettyServerCodingTypeEnum codingType=NettyServerCodingTypeEnum.DEFAULT;
 
     private NettyServerMyCodingConfig myConfig;
 
@@ -101,5 +104,13 @@ public class NettyServerConfig {
 
     public void setWebSocketConfig(NettyWebSocketCodingConfig webSocketConfig) {
         this.webSocketConfig = webSocketConfig;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

@@ -25,7 +25,6 @@ import java.net.InetSocketAddress;
 public class NettyServer implements InitializingBean {
 
 
-
     private NioEventLoopGroup bossGroup = null;
     private NioEventLoopGroup workerGroup = null;
 
@@ -40,8 +39,8 @@ public class NettyServer implements InitializingBean {
 
     protected void nettyServerStart() {
         try {
-            bossGroup = new NioEventLoopGroup(nettyServerConfig.getBossGroupThread());
-            workerGroup = new NioEventLoopGroup(nettyServerConfig.getWorkGroupThread());
+            bossGroup = nettyServerConfig.getBossGroupThread() < 0 ? new NioEventLoopGroup() : new NioEventLoopGroup(nettyServerConfig.getBossGroupThread());
+            workerGroup = nettyServerConfig.getWorkGroupThread() < 0 ? new NioEventLoopGroup() : new NioEventLoopGroup(nettyServerConfig.getWorkGroupThread());
             // 服务端启动类
             ServerBootstrap bootstrap = new ServerBootstrap();
             // 传入两个线程组
@@ -58,12 +57,12 @@ public class NettyServer implements InitializingBean {
             // 同步等待成功
             ChannelFuture future = bootstrap.bind().sync();
             if (future.isSuccess()) {
-                log.info("启动 Netty Server 成功,端口：{},协议:{}",nettyServerConfig.getPort(),nettyServerConfig.getCodingType());
+                log.info("启动 Netty Server 成功,端口：{},协议:{}", nettyServerConfig.getPort(), nettyServerConfig.getCodingType());
             }
             future.channel().closeFuture().sync();
-        }catch (Exception e){
-            log.error("Netty server start error:{},{}",e.getMessage(),e);
-        }finally {
+        } catch (Exception e) {
+            log.error("Netty server start error:{},{}", e.getMessage(), e);
+        } finally {
             log.info("Netty Server shutdown");
             // 优雅的关闭 释放资源
             bossGroup.shutdownGracefully();
@@ -73,19 +72,19 @@ public class NettyServer implements InitializingBean {
 
 
     @PreDestroy
-    public void destroy() {
+    protected void destroy() {
         // 优雅的关闭 释放资源
-        if(bossGroup!=null){
+        if (bossGroup != null) {
             bossGroup.shutdownGracefully();
         }
-        if(bossGroup!=null){
+        if (bossGroup != null) {
             bossGroup.shutdownGracefully();
         }
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        new Thread(()->{
+        new Thread(() -> {
             nettyServerStart();
         }).start();
     }

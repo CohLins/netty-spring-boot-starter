@@ -16,7 +16,7 @@ import java.util.Map;
 
 public interface NettyServerChannelInit {
 
-    default List<NettyHandlerCollect> getChannelHandlers() {
+    default void addChannelHandlers(Channel channel) {
         List<NettyHandlerCollect> handlers = new ArrayList<>();
         Map<String, ChannelHandler> beans = SpringUtils.getBeans(ChannelHandler.class);
 
@@ -29,7 +29,9 @@ public interface NettyServerChannelInit {
             });
         }
         Collections.sort(handlers);
-        return handlers;
+        handlers.forEach(item -> {
+            channel.pipeline().addLast(item.getChannelHandler());
+        });
     }
 
     void initChannelHandlers(Channel channel, NettyServerConfig nettyServerConfig, ApplicationContext context);

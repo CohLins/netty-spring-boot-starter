@@ -1,4 +1,5 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.example.nettyDemo.config.server.NettyServerAutoConfiguration,\
-com.example.nettyDemo.config.client.NettyClientAutoConfiguration
+com.example.nettyDemo.config.client.NettyClientAutoConfiguration,\
+com.example.nettyDemo.utils.SpringUtils

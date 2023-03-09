@@ -31,9 +31,6 @@ public class NettyHttpServerChannelInit implements NettyServerChannelInit {
         channel.pipeline().addLast(new HttpResponseEncoder());
         channel.pipeline().addLast(new HttpObjectAggregator(nettyServerConfig.getHttpConfig().getMaxContentLength()));
         // 自定义handler添加
-        List<NettyHandlerCollect> channelHandlers = getChannelHandlers();
-        channelHandlers.forEach(item -> {
-            channel.pipeline().addLast(item.getChannelHandler());
-        });
+        addChannelHandlers(channel);
     }
 }

@@ -37,9 +37,6 @@ public class NettyMyCodingClientChannelInit implements NettyClientChannelInit {
         // 心跳机制
         channel.pipeline().addLast(new NettyClientHeartbeatHandler(nettyClientConfig,context));
         // 自定义handler添加
-        List<NettyHandlerCollect> channelHandlers = getChannelHandlers();
-        channelHandlers.forEach(item -> {
-            channel.pipeline().addLast(item.getChannelHandler());
-        });
+        addChannelHandlers(channel);
     }
 }

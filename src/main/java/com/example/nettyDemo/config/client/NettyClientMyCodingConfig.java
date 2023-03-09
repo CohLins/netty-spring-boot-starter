@@ -12,10 +12,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "netty.client.my-config")
 public class NettyClientMyCodingConfig {
     private int maxFrameLength=1024;
-    private int lengthFieldOffset;
-    private int lengthFieldLength;
-    private int lengthAdjustment;
-    private int initialBytesToStrip;
+    private int lengthFieldOffset=6;
+    private int lengthFieldLength=4;
+    private int lengthAdjustment=0;
+    private int initialBytesToStrip=0;
 
     public int getMaxFrameLength() {
         return maxFrameLength;

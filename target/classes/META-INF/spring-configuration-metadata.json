@@ -16,6 +16,11 @@
       "sourceType": "com.example.nettyDemo.config.client.NettyClientMyCodingConfig"
     },
     {
+      "name": "netty.client.retry",
+      "type": "com.example.nettyDemo.config.client.NettyClientRetryConfig",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientRetryConfig"
+    },
+    {
       "name": "netty.server",
       "type": "com.example.nettyDemo.config.server.NettyServerConfig",
       "sourceType": "com.example.nettyDemo.config.server.NettyServerConfig"
@@ -45,12 +50,19 @@
     {
       "name": "netty.client.address",
       "type": "java.lang.String",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientConfig",
+      "defaultValue": "127.0.0.1"
+    },
+    {
+      "name": "netty.client.coding-type",
+      "type": "com.example.nettyDemo.channel.client.NettyClientCodingTypeEnum",
       "sourceType": "com.example.nettyDemo.config.client.NettyClientConfig"
     },
     {
-      "name": "netty.client.coding-type-enum",
-      "type": "com.example.nettyDemo.channel.client.NettyClientCodingTypeEnum",
-      "sourceType": "com.example.nettyDemo.config.client.NettyClientConfig"
+      "name": "netty.client.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientConfig",
+      "defaultValue": false
     },
     {
       "name": "netty.client.heart-config",
@@ -96,13 +108,13 @@
       "name": "netty.client.my-config.length-field-length",
       "type": "java.lang.Integer",
       "sourceType": "com.example.nettyDemo.config.client.NettyClientMyCodingConfig",
-      "defaultValue": 0
+      "defaultValue": 4
     },
     {
       "name": "netty.client.my-config.length-field-offset",
       "type": "java.lang.Integer",
       "sourceType": "com.example.nettyDemo.config.client.NettyClientMyCodingConfig",
-      "defaultValue": 0
+      "defaultValue": 6
     },
     {
       "name": "netty.client.my-config.max-frame-length",
@@ -114,7 +126,30 @@
       "name": "netty.client.port",
       "type": "java.lang.Integer",
       "sourceType": "com.example.nettyDemo.config.client.NettyClientConfig",
-      "defaultValue": 0
+      "defaultValue": 11111
+    },
+    {
+      "name": "netty.client.retry-config",
+      "type": "com.example.nettyDemo.config.client.NettyClientRetryConfig",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientConfig"
+    },
+    {
+      "name": "netty.client.retry.retry-base-time",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientRetryConfig",
+      "defaultValue": 4
+    },
+    {
+      "name": "netty.client.retry.retry-max-num",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientRetryConfig",
+      "defaultValue": 5
+    },
+    {
+      "name": "netty.client.retry.retry-max-time",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.nettyDemo.config.client.NettyClientRetryConfig",
+      "defaultValue": 30
     },
     {
       "name": "netty.client.work-group-thread",
@@ -132,6 +167,12 @@
       "name": "netty.server.coding-type",
       "type": "com.example.nettyDemo.channel.server.NettyServerCodingTypeEnum",
       "sourceType": "com.example.nettyDemo.config.server.NettyServerConfig"
+    },
+    {
+      "name": "netty.server.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.example.nettyDemo.config.server.NettyServerConfig",
+      "defaultValue": false
     },
     {
       "name": "netty.server.heart-config",
@@ -218,13 +259,13 @@
       "name": "netty.server.my-config.length-field-length",
       "type": "java.lang.Integer",
       "sourceType": "com.example.nettyDemo.config.server.NettyServerMyCodingConfig",
-      "defaultValue": 0
+      "defaultValue": 4
     },
     {
       "name": "netty.server.my-config.length-field-offset",
       "type": "java.lang.Integer",
       "sourceType": "com.example.nettyDemo.config.server.NettyServerMyCodingConfig",
-      "defaultValue": 0
+      "defaultValue": 6
     },
     {
       "name": "netty.server.my-config.max-frame-length",
